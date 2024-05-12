@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol_check.c                                    :+:      :+:    :+:   */
+/*   ft_atol_check_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:33:01 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 10:19:42 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:32:25 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker.h"
 
 static long	extract_sign(char **nump)
 {

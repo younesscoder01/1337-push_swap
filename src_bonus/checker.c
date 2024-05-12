@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 18:46:05 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:41:12 by ysahraou         ###   ########.fr       */
+/*   Created: 2024/05/07 10:34:21 by ysahraou          #+#    #+#             */
+/*   Updated: 2024/05/12 11:35:48 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker.h"
+
+void	run(char *str, t_stack **head_a, t_stack **head_b)
+{
+	while (str)
+	{
+		run_commands(head_a, head_b, str);
+		str = get_next_line(0);
+	}
+	if (a_is_sorted(*head_a) && !*head_b)
+		write(1, "OK\n", 3);
+	else
+	{
+		write(1, "KO\n", 3);
+		exit(1);
+	}
+	ft_stack_clear(head_a);
+}
 
 static char	*join_str(char **s1)
 {
@@ -34,7 +51,7 @@ static char	*join_str(char **s1)
 	return (str);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	t_stack	*head_a;
 	t_stack	*head_b;
@@ -58,7 +75,7 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 127);
 	if (!duplicated_check(head_a))
 		return (ft_stack_clear(&head_a), (0));
-	if (!a_is_sorted(head_a))
-		ft_sort(&head_a, &head_b);
-	return (ft_stack_clear(&head_a), 0);
+	str = get_next_line(0);
+	run(str, &head_a, &head_b);
+	return (0);
 }

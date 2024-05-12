@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:41:21 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/10 20:12:14 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:12:16 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_stack				*find_max(t_stack *stack);
 t_stack				*find_min(t_stack *stack_a);
 
 /*utils_init*/
-t_stack				*init(int ac, char **av);
 t_stack				*init_2_args(int ac, char **av);
 void				allocate(char *arg, t_stack **head);
 int					duplicated_check(t_stack *head);
@@ -71,13 +70,13 @@ void				ft_rrr(t_stack **stack_a, t_stack **stack_b, bool pr);
 void				ft_sort(t_stack **stack_a, t_stack **stack_b);
 
 /*big_sort_utils*/
-int *set_arr(t_stack *stack_a, int size);
-void sort_arr(int *arr, int len);
-void give_a_index(t_stack *stack_a, int *arr, int len);
-t_stack *still_in_range(t_stack *stack_a, int range);
-void set_above_med(t_stack *stack, int len);
+int					*set_arr(t_stack *stack_a, int size);
+void				sort_arr(int *arr, int len);
+void				give_a_index(t_stack *stack_a, int *arr, int len);
+t_stack				*still_in_range(t_stack *stack_a, int range);
+void				set_above_med(t_stack *stack, int len);
 
-void sort_3_4_5(t_stack **stack_a, t_stack **stack_b);
+void				sort_3_4_5(t_stack **stack_a, t_stack **stack_b);
 void				sort_3(t_stack **stack);
 
 #endif

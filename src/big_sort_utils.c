@@ -6,16 +6,16 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:54:06 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/10 11:56:00 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:38:44 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int *set_arr(t_stack *stack_a, int size)
+int	*set_arr(t_stack *stack_a, int size)
 {
-	int *arr;
-	int i;
+	int	*arr;
+	int	i;
 
 	arr = malloc(sizeof(int) * size);
 	i = 0;
@@ -27,11 +27,11 @@ int *set_arr(t_stack *stack_a, int size)
 	return (arr);
 }
 
-void sort_arr(int *arr, int len)
+void	sort_arr(int *arr, int len)
 {
-	int min;
-	int i;
-	int j;
+	int	min;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -52,9 +52,9 @@ void sort_arr(int *arr, int len)
 	}
 }
 
-void give_a_index(t_stack *stack_a, int *arr, int len)
+void	give_a_index(t_stack *stack_a, int *arr, int len)
 {
-	int i;
+	int	i;
 
 	while (stack_a)
 	{
@@ -69,19 +69,20 @@ void give_a_index(t_stack *stack_a, int *arr, int len)
 	}
 }
 
-t_stack *still_in_range(t_stack *stack_a, int range)
+t_stack	*still_in_range(t_stack *stack_a, int range)
 {
 	while (stack_a)
 	{
 		if (stack_a->index <= range)
-			return stack_a;
+			return (stack_a);
 		stack_a = stack_a->next;
 	}
-	return NULL;
+	return (NULL);
 }
-void set_above_med(t_stack *stack, int len)
+
+void	set_above_med(t_stack *stack, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)

@@ -6,7 +6,7 @@
 #    By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 10:44:32 by ysahraou          #+#    #+#              #
-#    Updated: 2024/05/10 19:54:59 by ysahraou         ###   ########.fr        #
+#    Updated: 2024/05/12 11:52:09 by ysahraou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = ./src/push_swap.c ./src/ft_atol_check.c ./src/utils_init.c \
 	./src/actions_ab.c ./src/big_sort.c ./src/utils_2.0.c ./src/big_sort_utils.c
 
 SRC_B = ./src_bonus/checker.c ./src_bonus/stack_init_bonus.c \
-		./src_bonus/ft_atol_check_bonus.c ./src_bonus/utils_bonus.c \
+		./src_bonus/ft_atol_check_bonus.c ./src_bonus/utils_init_bonus.c \
 		./src_bonus/utils_2.0_bonus.c ./src_bonus/actions_a_bonus.c \
 		./src_bonus/actions_ab_bonus.c ./src_bonus/actions_b_bonus.c \
 		./src_gnl/get_next_line.c ./src_gnl/get_next_line_utils.c
@@ -52,3 +52,5 @@ clean:
 	$(RM) $(OBJS_B)
 
 re: fclean all
+
+re_bonus: fclean bonus

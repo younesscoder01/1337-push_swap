@@ -6,22 +6,22 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:58:37 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/11 14:08:41 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:41:00 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int set_range(int size)
+int	set_range(int size)
 {
 	if (size <= 400)
-		return 15;
-	return 30;
+		return (15);
+	return (30);
 }
 
-void send_ab(t_stack **stack_a, t_stack **stack_b, int range)
+void	send_ab(t_stack **stack_a, t_stack **stack_b, int range)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*stack_a)
@@ -44,12 +44,30 @@ void send_ab(t_stack **stack_a, t_stack **stack_b, int range)
 			ft_rra(stack_a, 1);
 	}
 }
+
+void	send_ba(t_stack **stack_b, t_stack **stack_a)
+{
+	while (*stack_b)
+	{
+		set_above_med(*stack_b, ft_stack_size(*stack_b));
+		while (find_max(*stack_b) != *stack_b)
+		{
+			if (find_max(*stack_b)->above_med)
+				ft_rb(stack_b, 1);
+			else
+				ft_rrb(stack_b, 1);
+		}
+		ft_pa(stack_b, stack_a, 1);
+	}
+}
+
 void	ft_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int *arr;
-	int range;
+	int	*arr;
+	int	range;
+
 	if (ft_stack_size(*stack_a) <= 5)
-		return sort_3_4_5(stack_a, stack_b);
+		return (sort_3_4_5(stack_a, stack_b));
 	if (ft_stack_size(*stack_a) == 2)
 	{
 		ft_sa(stack_a, 1);
@@ -60,17 +78,6 @@ void	ft_sort(t_stack **stack_a, t_stack **stack_b)
 	sort_arr(arr, ft_stack_size(*stack_a));
 	give_a_index(*stack_a, arr, ft_stack_size(*stack_a));
 	send_ab(stack_a, stack_b, range);
-	while (*stack_b)
-	{
-	 	set_above_med(*stack_b, ft_stack_size(*stack_b));
-		while (find_max(*stack_b) != *stack_b)
-		{
-			if (find_max(*stack_b)->above_med)
-				ft_rb(stack_b, 1);
-			else
-				ft_rrb(stack_b, 1);
-		}
-		ft_pa(stack_b, stack_a, 1);
-	}
+	send_ba(stack_b, stack_a);
 	free(arr);
 }

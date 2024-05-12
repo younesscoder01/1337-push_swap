@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_2.0.c                                        :+:      :+:    :+:   */
+/*   utils_2.0_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:02:25 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:41:23 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:34:16 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker.h"
 
 void	ft_free_args(char **arr)
 {
@@ -38,40 +38,36 @@ int	a_is_sorted(t_stack *head_a)
 	return (1);
 }
 
-t_stack	*find_max(t_stack *stack)
+void	err(void)
 {
-	t_stack	*temp;
-	int		max;
-
-	max = stack->content;
-	temp = stack;
-	while (stack)
-	{
-		if (stack->content > max)
-		{
-			max = stack->content;
-			temp = stack;
-		}
-		stack = stack->next;
-	}
-	return (temp);
+	write(2, "Error\n", 6);
+	exit(127);
 }
 
-t_stack	*find_min(t_stack *stack_a)
+void	run_commands(t_stack **stack_a, t_stack **stack_b, char *str)
 {
-	t_stack	*temp;
-	int		min;
-
-	min = stack_a->content;
-	temp = stack_a;
-	while (stack_a)
-	{
-		if (stack_a->content < min)
-		{
-			min = stack_a->content;
-			temp = stack_a;
-		}
-		stack_a = stack_a->next;
-	}
-	return (temp);
+	if (!ft_strncmp(str, "sa\n", 3))
+		ft_sa(stack_a, 0);
+	else if (!ft_strncmp(str, "rrr\n", 4))
+		ft_rrr(stack_a, stack_b, 0);
+	else if (!ft_strncmp(str, "rra\n", 4))
+		ft_rra(stack_a, 0);
+	else if (!ft_strncmp(str, "rrb\n", 4))
+		ft_rrb(stack_b, 0);
+	else if (!ft_strncmp(str, "rr\n", 3))
+		ft_rr(stack_a, stack_b, 0);
+	else if (!ft_strncmp(str, "ss\n", 3))
+		ft_ss(stack_a, stack_b, 0);
+	else if (!ft_strncmp(str, "rb\n", 3))
+		ft_rb(stack_b, 0);
+	else if (!ft_strncmp(str, "ra\n", 3))
+		ft_ra(stack_a, 0);
+	else if (!ft_strncmp(str, "sb\n", 3))
+		ft_sb(stack_b, 0);
+	else if (!ft_strncmp(str, "pa\n", 3))
+		ft_pa(stack_b, stack_a, 0);
+	else if (!ft_strncmp(str, "pb\n", 3))
+		ft_pb(stack_a, stack_b, 0);
+	else
+		err();
 }
