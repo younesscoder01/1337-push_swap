@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:36:02 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:34:35 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:29:24 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int					duplicated_check(t_stack *head);
 
 /*ft_atol_check_bonus*/
 long				ft_atol_check(const char *nptr);
+int					all_space(char *str);
 
 /*actions_a_bonus*/
 void				ft_sa(t_stack **stack, bool pr);

@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:34:21 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:35:48 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:28:55 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,33 @@ void	run(char *str, t_stack **head_a, t_stack **head_b)
 	ft_stack_clear(head_a);
 }
 
+int	check_empty(char **av)
+{
+	int	i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (ft_strlen(av[i]) == 0)
+			return (1);
+		if (all_space(av[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static char	*join_str(char **s1)
 {
 	char	*str;
 	char	*tmp;
 	int		i;
 
+	if (check_empty(s1) == 1)
+	{
+		write(2, "Error\n", 6);
+		exit(127);
+	}
 	i = 1;
 	str = ft_calloc(1, 1);
 	tmp = str;

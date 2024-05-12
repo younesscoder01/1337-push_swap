@@ -12,12 +12,12 @@
 
 #include "../inc/push_swap.h"
 
-int check_empty(char **av)
+int	check_empty(char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while(av[i])
+	while (av[i])
 	{
 		if (ft_strlen(av[i]) == 0)
 			return (1);
@@ -54,8 +54,6 @@ static char	*join_str(char **s1)
 	}
 	return (str);
 }
-
-
 
 int	main(int argc, char **argv)
 {
