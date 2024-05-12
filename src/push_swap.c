@@ -6,11 +6,27 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:46:05 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:41:12 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:10:59 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int check_empty(char **av)
+{
+	int i;
+
+	i = 1;
+	while(av[i])
+	{
+		if (ft_strlen(av[i]) == 0)
+			return (1);
+		if (all_space(av[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 static char	*join_str(char **s1)
 {
@@ -18,6 +34,11 @@ static char	*join_str(char **s1)
 	char	*tmp;
 	int		i;
 
+	if (check_empty(s1) == 1)
+	{
+		write(2, "Error\n", 6);
+		exit(127);
+	}
 	i = 1;
 	str = ft_calloc(1, 1);
 	tmp = str;
@@ -33,6 +54,8 @@ static char	*join_str(char **s1)
 	}
 	return (str);
 }
+
+
 
 int	main(int argc, char **argv)
 {
