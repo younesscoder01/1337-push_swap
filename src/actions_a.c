@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:59:13 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/10 11:37:54 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/14 21:02:23 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sa(t_stack **stack, bool pr)
 	t_stack	*temp_head;
 	t_stack	*temp_2;
 
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	temp_head = *stack;
 	temp_2 = (*stack)->next;
