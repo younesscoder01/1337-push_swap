@@ -6,7 +6,7 @@
 #    By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 10:44:32 by ysahraou          #+#    #+#              #
-#    Updated: 2024/05/12 11:52:09 by ysahraou         ###   ########.fr        #
+#    Updated: 2024/05/17 10:42:51 by ysahraou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ OBJS_B = $(SRC_B:.c=.o)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 NAME = push_swap
+CHECKER = checker
 
 all: $(NAME)
 
@@ -37,9 +38,11 @@ $(NAME): $(OBJS)
 	$(MAKE) -C libft -s
 	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
 
-bonus: $(OBJS_B)
+$(CHECKER): $(OBJS_B)
 	$(MAKE) -C libft -s
 	$(CC) $(CFLAGS) $(OBJS_B) libft/libft.a -o checker
+
+bonus: $(CHECKER)
 
 fclean: clean
 	$(MAKE) fclean -C libft -s

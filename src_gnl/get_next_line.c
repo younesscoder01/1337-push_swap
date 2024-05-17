@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:25:28 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:41:36 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:33:49 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,11 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		if (buffer)
+			free(buffer);
 		return (NULL);
+	}
 	buffer = read_from_file(fd, buffer);
 	if (!buffer)
 		return (NULL);

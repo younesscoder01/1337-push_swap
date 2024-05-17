@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:02:25 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:34:16 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:37:33 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,7 @@ int	a_is_sorted(t_stack *head_a)
 	return (1);
 }
 
-void	err(void)
-{
-	write(2, "Error\n", 6);
-	exit(127);
-}
-
-void	run_commands(t_stack **stack_a, t_stack **stack_b, char *str)
+int	run_commands(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
 		ft_sa(stack_a, 0);
@@ -69,5 +63,6 @@ void	run_commands(t_stack **stack_a, t_stack **stack_b, char *str)
 	else if (!ft_strncmp(str, "pb\n", 3))
 		ft_pb(stack_a, stack_b, 0);
 	else
-		err();
+		return (write(2, "Error\n", 6), 1);
+	return (0);
 }

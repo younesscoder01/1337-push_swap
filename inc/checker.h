@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:36:02 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 14:29:24 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:14:57 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				ft_rr(t_stack **stack_a, t_stack **stack_b, bool pr);
 void				ft_rrr(t_stack **stack_a, t_stack **stack_b, bool pr);
 
 /*utils_2.0_bonus*/
-void				run_commands(t_stack **stack_a, t_stack **stack_b,
+int				run_commands(t_stack **stack_a, t_stack **stack_b,
 						char *str);
 void				ft_free_args(char **arr);
 int					a_is_sorted(t_stack *head_a);

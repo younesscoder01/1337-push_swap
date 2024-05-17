@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:34:21 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 14:28:55 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:38:12 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@ void	run(char *str, t_stack **head_a, t_stack **head_b)
 {
 	while (str)
 	{
-		run_commands(head_a, head_b, str);
+		if (run_commands(head_a, head_b, str))
+		{
+			free(str);
+			get_next_line(-1);
+			ft_stack_clear(head_a);
+			ft_stack_clear(head_b);
+			exit(127);
+		}
+		free(str);
 		str = get_next_line(0);
 	}
 	if (a_is_sorted(*head_a) && !*head_b)
@@ -24,6 +32,8 @@ void	run(char *str, t_stack **head_a, t_stack **head_b)
 	else
 	{
 		write(1, "KO\n", 3);
+		ft_stack_clear(head_a);
+		ft_stack_clear(head_b);
 		exit(1);
 	}
 	ft_stack_clear(head_a);
