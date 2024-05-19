@@ -60,7 +60,7 @@ void				ft_rr(t_stack **stack_a, t_stack **stack_b, bool pr);
 void				ft_rrr(t_stack **stack_a, t_stack **stack_b, bool pr);
 
 /*utils_2.0_bonus*/
-int				run_commands(t_stack **stack_a, t_stack **stack_b,
+int					run_commands(t_stack **stack_a, t_stack **stack_b,
 						char *str);
 void				ft_free_args(char **arr);
 int					a_is_sorted(t_stack *head_a);
