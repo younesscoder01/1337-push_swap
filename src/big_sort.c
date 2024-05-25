@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:58:37 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/12 11:41:00 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:58:52 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	send_ab(t_stack **stack_a, t_stack **stack_b, int range)
 			ft_pb(stack_a, stack_b, 1);
 			i++;
 		}
-		else if (still_in_range(*stack_a, range + i) && (*stack_a)->above_med)
+		else if (still_in_range(*stack_a, range + i)->above_med)
 			ft_ra(stack_a, 1);
 		else
 			ft_rra(stack_a, 1);

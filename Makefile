@@ -6,7 +6,7 @@
 #    By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 10:44:32 by ysahraou          #+#    #+#              #
-#    Updated: 2024/05/17 10:42:51 by ysahraou         ###   ########.fr        #
+#    Updated: 2024/05/25 13:01:05 by ysahraou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS = $(SRC:.c=.o)
 OBJS_B = $(SRC_B:.c=.o)
 
 .c.o:
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 NAME = push_swap
 CHECKER = checker
@@ -35,24 +35,40 @@ CHECKER = checker
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C libft -s
-	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+	@echo "Compiling source files...⏳"
+	@echo "Done ✅"
+	@echo "Compiling libft...⏳"
+	@$(MAKE) -C libft -s
+	@echo "Done ✅"
+	@echo "Linking...⏳"
+	@$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+	@echo "Done ✅"
 
 $(CHECKER): $(OBJS_B)
-	$(MAKE) -C libft -s
-	$(CC) $(CFLAGS) $(OBJS_B) libft/libft.a -o checker
+	@echo "Compiling source files...⏳"
+	@echo "Done ✅"
+	@echo "Compiling libft...⏳"
+	@$(MAKE) -C libft -s
+	@echo "Done ✅"
+	@echo "Linking...⏳"
+	@$(CC) $(CFLAGS) $(OBJS_B) libft/libft.a -o checker
+	@echo "Done ✅"
 
 bonus: $(CHECKER)
 
 fclean: clean
-	$(MAKE) fclean -C libft -s
-	$(RM) $(NAME)
-	$(RM) checker
+	@echo "Clean all...⏳"
+	@$(MAKE) fclean -C libft -s
+	@$(RM) $(NAME)
+	@$(RM) checker
+	@echo "Done ✅"
 
 clean:
-	$(MAKE) clean -C libft -s
-	$(RM) $(OBJS)
-	$(RM) $(OBJS_B)
+	@echo "Clean .o files...⏳"
+	@$(MAKE) clean -C libft -s
+	@$(RM) $(OBJS)
+	@$(RM) $(OBJS_B)
+	@echo "Done ✅"
 
 re: fclean all
 
